@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -33,7 +34,8 @@ namespace WpfProject
             RandomPokemons = new ObservableCollection<Pokemon> { }; 
             RandomizePokemons(RandomPokemons);
         }
-
+        
+        //To randomize pokemons list on the initial page
         static async void RandomizePokemons(ObservableCollection<Pokemon> buffer)
         {   
             //will randomize the id of pokemon
@@ -57,6 +59,21 @@ namespace WpfProject
                 string imgUrl = (string) json["sprites"]["front_default"];
                 //adding new pokemon to the list
                 buffer.Add(new Pokemon{Name=name, ID =id, Url = url, ImgUrl = imgUrl});
+            }
+        }
+        
+        //OnClick command for the button "Randomize", to randomize pokemons list again
+        private RelayCommand randomize_btn_click;
+        public RelayCommand Randomize_btn_click
+        {
+            get
+            {
+                return randomize_btn_click ??
+                       (randomize_btn_click = new RelayCommand(obj =>
+                       {
+                           RandomPokemons.Clear();
+                           RandomizePokemons(RandomPokemons);
+                       }));
             }
         }
 
