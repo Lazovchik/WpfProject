@@ -2,6 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+
 /*VIEW-MODEL*/
 namespace WpfProject
 {
@@ -9,6 +14,7 @@ namespace WpfProject
     {
         private Pokemon chosenPokemon;
         private const string baseUrl = "https://pokeapi.co/api/v2/pokemon/";
+        private static HttpClient client = new HttpClient();
         
         public ObservableCollection<Pokemon> RandomPokemons {get; set;}
         
@@ -22,23 +28,34 @@ namespace WpfProject
             }
         }
 
-        public ApplicationViewModel()
+        public  ApplicationViewModel()
         { 
-            RandomPokemons = new ObservableCollection<Pokemon> { };
+            RandomPokemons = new ObservableCollection<Pokemon> { }; 
             RandomizePokemons(RandomPokemons);
         }
 
-        public void RandomizePokemons(ObservableCollection<Pokemon> buffer)
-        {
+        static async void RandomizePokemons(ObservableCollection<Pokemon> buffer)
+        {   
+            //will randomize the id of pokemon
             Random rnd = new Random();
             int id;
             
+            //initializing title list of 10 random pokemons
             for (int i = 0; i < 10; i++)
             {
-                id = rnd.Next(0, 965);
+                //pokemon id randomized
+                id = rnd.Next(0, 900);
+                //string to request pokemon info
                 string url = baseUrl + id.ToString() + "/";
-
-                buffer.Add(new Pokemon{Name="Bulbazaur", ID =id, Url = url, ImgUrl = url});
+                //API call
+                var result = await client.GetStringAsync(url);
+                //Parsing received JSON string
+                JObject json = JObject.Parse(result);
+                //assigning the values
+                string name = (string) json["name"];
+                string imgUrl = (string) json["sprites"]["front_default"];
+                //adding new pokemon to the list
+                buffer.Add(new Pokemon{Name="Bulbazaur", ID =id, Url = url, ImgUrl = imgUrl});
             }
         }
 
