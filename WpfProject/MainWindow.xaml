@@ -16,8 +16,8 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*" />
-            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="0.15*" />
             <RowDefinition Height="0.1*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -26,11 +26,12 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <TextBlock Text="Welcome to WPF Pokedex Application" FontSize="20" HorizontalAlignment="Center" />
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="center" Background="lavender">
+            <TextBlock Text="Welcome to WPF Pokedex Application" FontSize="20"  HorizontalAlignment="center" />
         </StackPanel>
         
-        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source ="/Images/pokemon_logo.png" Height="100" Width="100" HorizontalAlignment="Center"/>
+        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source ="https://upload.wikimedia.org/wikipedia/commons/4/4c/Pokeball.png" 
+               Height="75" Width="75" VerticalAlignment="center "/>
         
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <TextBlock Text="SearchField" HorizontalAlignment="Center" />
