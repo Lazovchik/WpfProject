@@ -44,7 +44,7 @@ namespace WpfProject
             for (int i = 0; i < 10; i++)
             {
                 //pokemon id randomized
-                id = rnd.Next(0, 900);
+                id = rnd.Next(1, 807);
                 //string to request pokemon info
                 string url = baseUrl + id.ToString() + "/";
                 //API call
@@ -52,10 +52,11 @@ namespace WpfProject
                 //Parsing received JSON string
                 JObject json = JObject.Parse(result);
                 //assigning the values
-                string name = (string) json["name"];
+                string namebuff = (string) json["name"];
+                string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
                 //adding new pokemon to the list
-                buffer.Add(new Pokemon{Name="Bulbazaur", ID =id, Url = url, ImgUrl = imgUrl});
+                buffer.Add(new Pokemon{Name=name, ID =id, Url = url, ImgUrl = imgUrl});
             }
         }
 
