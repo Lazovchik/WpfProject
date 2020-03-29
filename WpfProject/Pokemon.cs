@@ -42,7 +42,7 @@ namespace WpfProject
             get { return imgUrl; }
             set
             {
-                ImgUrl = value;
+                imgUrl = value;
                 OnPropertyChanged("ImgUrl");
             }
         }
