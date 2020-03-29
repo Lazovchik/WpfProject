@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Lazovchik\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Lazovchik\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WpfProject.1842452428.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Lazovchik\RiderProjects\WpfProject" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="WpfProject" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="App.g.cs" t="Include" />
+            <e p="MainWindow.g.cs" t="Include" />
+          </e>
+        </e>
+        <e p="POkemon.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+        </e>
+        <e p="WpfProject.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WpfProject.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
