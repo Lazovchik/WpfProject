@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+/*MODEL*/
 namespace WpfProject
 {
     public class Pokemon: INotifyPropertyChanged
