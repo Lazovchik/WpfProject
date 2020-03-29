@@ -19,6 +19,7 @@
             <e p="MainWindow.g.cs" t="Include" />
           </e>
         </e>
+        <e p="packages.config" t="Include" />
         <e p="POkemon.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />

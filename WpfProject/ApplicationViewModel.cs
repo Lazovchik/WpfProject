@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 /*VIEW-MODEL*/
@@ -7,6 +8,8 @@ namespace WpfProject
     public class ApplicationViewModel: INotifyPropertyChanged
     {
         private Pokemon chosenPokemon;
+        private const string baseUrl = "https://pokeapi.co/api/v2/pokemon/";
+        
         public ObservableCollection<Pokemon> RandomPokemons {get; set;}
         
         public Pokemon  ChosenPokemon
@@ -20,12 +23,23 @@ namespace WpfProject
         }
 
         public ApplicationViewModel()
+        { 
+            RandomPokemons = new ObservableCollection<Pokemon> { };
+            RandomizePokemons(RandomPokemons);
+        }
+
+        public void RandomizePokemons(ObservableCollection<Pokemon> buffer)
         {
-            RandomPokemons = new ObservableCollection<Pokemon>
+            Random rnd = new Random();
+            int id;
+            
+            for (int i = 0; i < 10; i++)
             {
-                new Pokemon{Name="Bulbazaur", ID =555, Url = "https://asdjbasdjsd.com", ImgUrl = "kartinka"},
-                new Pokemon{Name="FDPzaur", ID =556, Url = "https://asdjbasasasdsdjsd.com", ImgUrl = "kartinka2"}
-            };
+                id = rnd.Next(0, 965);
+                string url = baseUrl + id.ToString() + "/";
+
+                buffer.Add(new Pokemon{Name="Bulbazaur", ID =id, Url = url, ImgUrl = url});
+            }
         }
 
         //implementation of INotifyPropertyChanged interface
