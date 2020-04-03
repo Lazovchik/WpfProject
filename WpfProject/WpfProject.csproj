@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DE45D45A-E690-4A0B-9A45-C2306CFA9F2C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>WpfProject</RootNamespace>
     <AssemblyName>WpfProject</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>

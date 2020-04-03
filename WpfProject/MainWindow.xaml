@@ -35,11 +35,20 @@
                Height="75" Width="75" VerticalAlignment="center "/>
         
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <TextBox Width="200" Text="Enter Pokemons Name" HorizontalAlignment="Center"/>
-            <Button Content="Find Pokemon"
-                    Width="100" 
+            <TextBox 
+                Name="SearchBar" 
+                Width="200" 
+                LostFocus="TextBox_LostFocus" 
+                GotFocus="TextBox_Gotfocus" 
+                Text="{Binding Pokesearch}" 
+                HorizontalAlignment="Center"
+            />
+            <Button 
+                    Content="Find Pokemon!" Width="100" 
                     Margin="0,5,0,0"
-                    />
+                    Command="{Binding StartSearch}"
+            /><!--{Binding Pokesearch, UpdateSourceTrigger=PropertyChanged}-->
+
         </StackPanel>
         <Button Grid.Row="3" Grid.Column="0" 
                 Content="Randomize"
