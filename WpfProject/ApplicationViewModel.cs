@@ -28,7 +28,6 @@ namespace WpfProject
             string pokedexUrl = baseUrl + "/?limit=964";
             var result = await client.GetStringAsync(pokedexUrl);
             pokedex = JObject.Parse(result);
-            //Console.WriteLine(pokedex);
         }
         
         public Pokemon ChosenPokemon
@@ -126,7 +125,6 @@ namespace WpfProject
                 }
 
                 var result = await client.GetStringAsync(url);
-                Console.WriteLine(result);
                 //Parsing received JSON string
                 JObject json = JObject.Parse(result);
                 //Console.WriteLine(json);
