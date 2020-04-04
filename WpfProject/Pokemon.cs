@@ -12,7 +12,17 @@ namespace WpfProject
         private string type1;
         private string type2;
         private float weight;
+        private float height;
 
+        public float Height
+        {
+            get => height;
+            set
+            {
+                height = value;
+                OnPropertyChanged("Height");
+            }
+        }
 
         public float Weight
         {
@@ -22,7 +32,6 @@ namespace WpfProject
                 weight = value;
                 OnPropertyChanged("Weight");
             }
-            
         }
 
         public string Type1

@@ -74,6 +74,7 @@ namespace WpfProject
                 string imgUrl = (string) json["sprites"]["front_default"];
                 string[] types = {"none", "none"};
                 float weight = ((float) json["weight"]) / 10; 
+                float height = ((float) json["height"]) / 10; 
 
                 ///in the json, the secondary type is listed first
                 if ((int) json["types"][0]["slot"] == 2)
@@ -84,7 +85,7 @@ namespace WpfProject
                 else types[0] = (string) json["types"][0]["type"]["name"];
                 
                 //adding new pokemon to the list
-                buffer.Add(new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight});
+                buffer.Add(new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height});
             }
         }
         
@@ -136,6 +137,7 @@ namespace WpfProject
                 string imgUrl = (string) json["sprites"]["front_default"];
                 string[] types = {"none", "none"};
                 float weight = ((float) json["weight"]) / 10; 
+                float height = ((float) json["height"]) / 10; 
 
                 ///in the json, the secondary type is listed first
                 if ((int) json["types"][0]["slot"] == 2)
@@ -146,7 +148,7 @@ namespace WpfProject
                 else types[0] = (string) json["types"][0]["type"]["name"];
                 
                 //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight};
+                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
             }
             //if the wrong typoe of request is made...
             catch (AggregateException e)
@@ -172,6 +174,7 @@ namespace WpfProject
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
                 float weight = ((float) json["weight"]) / 10; 
+                float height = ((float) json["height"]) / 10; 
                 
                 string[] types = {"none", "none"};
                 ///in the json, the secondary type is listed first
@@ -183,7 +186,7 @@ namespace WpfProject
                 else types[0] = (string) json["types"][0]["type"]["name"];
                 
                 //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = ("INCORRECT REQUEST SO HERE'S " +name.ToUpper()) , ID = id, Url = url, ImgUrl = imgUrl, Weight = weight};
+                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
             }
             catch (Exception e)
             {
