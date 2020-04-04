@@ -9,7 +9,42 @@ namespace WpfProject
         private int id;
         private string name;
         private string imgUrl;
-        
+        private string type1;
+        private string type2;
+        private float weight;
+
+
+        public float Weight
+        {
+            get => weight;
+            set
+            {
+                weight = value;
+                OnPropertyChanged("Weight");
+            }
+            
+        }
+
+        public string Type1
+        {
+            get => type1;
+            set
+            {
+                type1 = value;
+                OnPropertyChanged("Type1");
+            }
+        }
+
+        public string Type2
+        {
+            get => type2;
+            set
+            {
+                type2 = value;
+                OnPropertyChanged("Type2");
+            }
+        }
+
         public string Url
         {
             get { return url; }

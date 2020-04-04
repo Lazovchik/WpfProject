@@ -46,7 +46,8 @@ namespace WpfProject
             RandomPokemons = new ObservableCollection<Pokemon> { }; 
             RandomizePokemons(RandomPokemons);
             GetPokeDex();
-            
+            pokesearch = "Bulbasaur";
+            GetPokemon();
         }
         
         //To randomize pokemons list on the initial page
@@ -71,8 +72,19 @@ namespace WpfProject
                 string namebuff = (string) json["name"];
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
+                string[] types = {"none", "none"};
+                float weight = ((float) json["weight"]) / 10; 
+
+                ///in the json, the secondary type is listed first
+                if ((int) json["types"][0]["slot"] == 2)
+                {
+                    types[0] = (string) json["types"][1]["type"]["name"];
+                    types[1] = (string) json["types"][0]["type"]["name"];
+                }
+                else types[0] = (string) json["types"][0]["type"]["name"];
+                
                 //adding new pokemon to the list
-                buffer.Add(new Pokemon{Name=name, ID =id, Url = url, ImgUrl = imgUrl});
+                buffer.Add(new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight});
             }
         }
         
@@ -91,7 +103,7 @@ namespace WpfProject
             }
         }
 
-        // TODO: Fix the "" pokesearch, it makes the whole thing crash
+        
         private async void GetPokemon()
         {
             try
@@ -122,8 +134,19 @@ namespace WpfProject
                 string namebuff = (string) json["name"];
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
+                string[] types = {"none", "none"};
+                float weight = ((float) json["weight"]) / 10; 
+
+                ///in the json, the secondary type is listed first
+                if ((int) json["types"][0]["slot"] == 2)
+                {
+                    types[0] = (string) json["types"][1]["type"]["name"];
+                    types[1] = (string) json["types"][0]["type"]["name"];
+                }
+                else types[0] = (string) json["types"][0]["type"]["name"];
+                
                 //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl};
+                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight};
             }
             //if the wrong typoe of request is made...
             catch (AggregateException e)
@@ -148,8 +171,19 @@ namespace WpfProject
                 string namebuff = (string) json["name"];
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
+                float weight = ((float) json["weight"]) / 10; 
+                
+                string[] types = {"none", "none"};
+                ///in the json, the secondary type is listed first
+                if ((int) json["types"][0]["slot"] == 2)
+                {
+                    types[0] = (string) json["types"][1]["type"]["name"];
+                    types[1] = (string) json["types"][0]["type"]["name"];
+                }
+                else types[0] = (string) json["types"][0]["type"]["name"];
+                
                 //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = ("INCORRECT REQUEST SO HERE'S " +name.ToUpper()) , ID = id, Url = url, ImgUrl = imgUrl};
+                ChosenPokemon = new Pokemon {Name = ("INCORRECT REQUEST SO HERE'S " +name.ToUpper()) , ID = id, Url = url, ImgUrl = imgUrl, Weight = weight};
             }
             catch (Exception e)
             {
@@ -168,6 +202,11 @@ namespace WpfProject
             set
             {
                 pokesearch = value.Trim();
+                if (string.IsNullOrEmpty(pokesearch))
+                {
+                    if (string.IsNullOrEmpty(ChosenPokemon.Name)) pokesearch = "bulbasaur";
+                    else pokesearch = ChosenPokemon.Name;
+                }
                 OnPropertyChanged();
             } 
         }

@@ -86,6 +86,22 @@
                    Width="300" 
                    Height="300"
                    Margin="0" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Type 1" FontStyle="Oblique" FontSize="17" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Type 2" FontStyle="Oblique" FontSize="17" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Type1, UpdateSourceTrigger=PropertyChanged}" Margin="0, 15, 0, 0"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Type2, UpdateSourceTrigger=PropertyChanged}" Margin="0, 15, 0, 0"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>
