@@ -48,7 +48,7 @@
                     Content="Find Pokemon!" Width="100" 
                     Margin="0,5,0,0"
                     Command="{Binding StartSearch}"
-            /><!--{Binding Pokesearch, UpdateSourceTrigger=PropertyChanged}-->
+            />
 
         </StackPanel>
         <Button Grid.Row="3" Grid.Column="0" 
@@ -59,6 +59,7 @@
                 Height="50"
                 Command="{Binding Randomize_btn_click}"
         />
+        <!--<Displaying list of random pokemons>-->
         <ListBox Grid.Row="3" Grid.Column="0" ItemsSource="{Binding RandomPokemons}"
                  SelectedItem="{Binding ChosenPokemon}"
                  HorizontalAlignment="Center"
@@ -74,73 +75,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
-        <!--<StackPanel Grid.Row="4" Grid.Column="1" Margin="70" DataContext="{Binding ChosenPokemon}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="3*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="4*" />
-                </Grid.RowDefinitions>
-                <Image Source="{Binding Path=ImgUrl, UpdateSourceTrigger=PropertyChanged}" 
-                       HorizontalAlignment="Center" 
-                       Width="300" 
-                       Height="300"
-                       Margin="0" />
-                <Button Grid.Column="1">Button 2</Button>
-                <Button Grid.Column="2">Button 3</Button>
-                <Button Grid.Row="1">Button 4</Button>
-                <Button Grid.Column="1" Grid.Row="1">Button 5</Button>
-                <Button Grid.Column="2" Grid.Row="1">Button 6</Button>
-                <Button Grid.Row="2">Button 7</Button>
-                <Button Grid.Column="1" Grid.Row="2">Button 8</Button>
-                <Button Grid.Column="2" Grid.Row="2">Button 9</Button>
-            </Grid>
-        </StackPanel>-->
-        
-        <!--<StackPanel Grid.Row="3" Grid.Column="1" Margin="10" DataContext="{Binding ChosenPokemon}">
-            <TextBlock Text="ChosenPokemon" FontSize="20" />
-            <TextBlock Text="Name" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="ID" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Image" FontStyle="Oblique" FontSize="17" />
-            <Image Source="{Binding Path=ImgUrl, UpdateSourceTrigger=PropertyChanged}" 
-                   HorizontalAlignment="Center" 
-                   Width="300" 
-                   Height="300"
-                   Margin="0" />
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Type 1" FontStyle="Oblique" FontSize="17" />
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Type 2" FontStyle="Oblique" FontSize="17" />
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Type1, UpdateSourceTrigger=PropertyChanged}" Margin="0, 15, 0, 0"/>
-                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Type2, UpdateSourceTrigger=PropertyChanged}" Margin="0, 15, 0, 0"/>
-            </Grid>
-            <TextBlock Text="Height in meters" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Weight in kg" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Description" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Text="{Binding FlavorText, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>-->
+        <!--<Displaying info on the chosen Pokemon>-->
         <Grid Grid.Row="3" Grid.Column="1" Margin="10" DataContext="{Binding ChosenPokemon}">
-            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="0.5*" />
