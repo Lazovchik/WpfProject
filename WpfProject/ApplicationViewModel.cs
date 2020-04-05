@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
+using System.Threading.Tasks;
+
 /*VIEW-MODEL*/
 namespace WpfProject
 {
@@ -46,7 +48,7 @@ namespace WpfProject
             RandomizePokemons(RandomPokemons);
             GetPokeDex();
             pokesearch = "Bulbasaur";
-            GetPokemon();
+            SearchPokemon();
         }
         
         //To randomize pokemons list on the initial page
@@ -103,8 +105,86 @@ namespace WpfProject
             }
         }
 
+
+        public async Task GetPokemon( string url)
+        {
+            try
+            {
+                string result =  await client.GetStringAsync(url);
+                //Parsing received JSON string
+                JObject json = JObject.Parse(result);
+                //Console.WriteLine(json);
+                //assigning the values
+                int id = (int) json["id"];
+                string namebuff = (string) json["name"];
+                string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
+                string imgUrl = (string) json["sprites"]["front_default"];
+                string[] types = {"none", "none"};
+                float weight = ((float) json["weight"]) / 10; 
+                float height = ((float) json["height"]) / 10; 
+
+                ///in the json, the secondary type is listed first
+                if ((int) json["types"][0]["slot"] == 2)
+                {
+                    types[0] = (string) json["types"][1]["type"]["name"];
+                    types[1] = (string) json["types"][0]["type"]["name"];
+                }
+                else types[0] = (string) json["types"][0]["type"]["name"];
+                
+                //adding new pokemon to the list
+                
+                ChosenPokemon = new Pokemon{Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+            }
+            //if the wrong typoe of request is made...
+            catch (AggregateException e)
+            {
+                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e.Source);
+            }
+            // invalid pokemon usually, most probably 404, so we generate a random pokemon that we are sure exists
+            catch( HttpRequestException e)
+            {
+                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e.Source);
+                
+                Random rnd = new Random();
+                int id = rnd.Next(1, 807);
+                //string to request pokemon info
+                string newurl = baseUrl + id.ToString() + "/";
+                var result = await  client.GetStringAsync(newurl);
+                //Parsing received JSON string
+                JObject json = JObject.Parse(result);
+                //assigning the values
+                string namebuff = (string) json["name"];
+                string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
+                string imgUrl = (string) json["sprites"]["front_default"];
+                float weight = ((float) json["weight"]) / 10; 
+                float height = ((float) json["height"]) / 10; 
+                
+                string[] types = {"none", "none"};
+                ///in the json, the secondary type is listed first
+                if ((int) json["types"][0]["slot"] == 2)
+                {
+                    types[0] = (string) json["types"][1]["type"]["name"];
+                    types[1] = (string) json["types"][0]["type"]["name"];
+                }
+                else types[0] = (string) json["types"][0]["type"]["name"];
+                
+                //adding new pokemon to the list
+                
+                chosenPokemon =  new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+                
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                Console.WriteLine("Test failed, not HttpRequestException nor AggregateException");
+                throw;
+            }
+        }
         
-        private async void GetPokemon()
+        
+        private async void SearchPokemon()
         {
             try
             {
@@ -123,30 +203,9 @@ namespace WpfProject
                 {
                     url = baseUrl + pokesearch.ToLower() + "/";
                 }
-
-                var result = await client.GetStringAsync(url);
-                //Parsing received JSON string
-                JObject json = JObject.Parse(result);
-                //Console.WriteLine(json);
-                //assigning the values
-                id = (int) json["id"];
-                string namebuff = (string) json["name"];
-                string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
-                string imgUrl = (string) json["sprites"]["front_default"];
-                string[] types = {"none", "none"};
-                float weight = ((float) json["weight"]) / 10; 
-                float height = ((float) json["height"]) / 10; 
-
-                ///in the json, the secondary type is listed first
-                if ((int) json["types"][0]["slot"] == 2)
-                {
-                    types[0] = (string) json["types"][1]["type"]["name"];
-                    types[1] = (string) json["types"][0]["type"]["name"];
-                }
-                else types[0] = (string) json["types"][0]["type"]["name"];
                 
-                //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+                await GetPokemon(url);
+
             }
             //if the wrong typoe of request is made...
             catch (AggregateException e)
@@ -164,27 +223,7 @@ namespace WpfProject
                 int id = rnd.Next(1, 807);
                 //string to request pokemon info
                 string url = baseUrl + id.ToString() + "/";
-                var result = await client.GetStringAsync(url);
-                //Parsing received JSON string
-                JObject json = JObject.Parse(result);
-                //assigning the values
-                string namebuff = (string) json["name"];
-                string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
-                string imgUrl = (string) json["sprites"]["front_default"];
-                float weight = ((float) json["weight"]) / 10; 
-                float height = ((float) json["height"]) / 10; 
-                
-                string[] types = {"none", "none"};
-                ///in the json, the secondary type is listed first
-                if ((int) json["types"][0]["slot"] == 2)
-                {
-                    types[0] = (string) json["types"][1]["type"]["name"];
-                    types[1] = (string) json["types"][0]["type"]["name"];
-                }
-                else types[0] = (string) json["types"][0]["type"]["name"];
-                
-                //adding new pokemon to the list
-                ChosenPokemon = new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+                await GetPokemon(url);
             }
             catch (Exception e)
             {
@@ -219,7 +258,7 @@ namespace WpfProject
             get {
                 return startSearch ?? (startSearch = new RelayCommand( obj  =>
                 {
-                    GetPokemon();
+                    SearchPokemon();
                 })); 
             }
         }

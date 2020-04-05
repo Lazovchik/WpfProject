@@ -27,6 +27,7 @@
           <e p="Resources.resx" t="Include" />
         </e>
         <e p="RelayCommand.cs" t="Include" />
+        <e p="TestAppViewModel.cs" t="Include" />
         <e p="WpfProject.csproj" t="IncludeRecursive" />
       </e>
       <e p="WpfProject.sln" t="IncludeFlat" />
