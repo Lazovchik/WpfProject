@@ -128,8 +128,14 @@ namespace WpfProject
                 {
                     types[0] = (string) json["types"][1]["type"]["name"];
                     types[1] = (string) json["types"][0]["type"]["name"];
+                    types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
+                    types[1] = char.ToUpper(types[1][0]) + types[1].Substring(1);
                 }
-                else types[0] = (string) json["types"][0]["type"]["name"];
+                else
+                {
+                    types[0] = (string) json["types"][0]["type"]["name"];
+                    types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
+                }
                 
                 //adding new pokemon to the list
                 
@@ -167,8 +173,14 @@ namespace WpfProject
                 {
                     types[0] = (string) json["types"][1]["type"]["name"];
                     types[1] = (string) json["types"][0]["type"]["name"];
+                    types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
+                    types[1] = char.ToUpper(types[1][0]) + types[1].Substring(1);
                 }
-                else types[0] = (string) json["types"][0]["type"]["name"];
+                else
+                {
+                    types[0] = (string) json["types"][0]["type"]["name"];
+                    types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
+                }
                 
                 //adding new pokemon to the list
                 

@@ -20,31 +20,34 @@ public class TestAppViewModel
         [Test]
         [TestCase("Bulbasaur")]
         [TestCase("charizard")]
-        [TestCase("Empoleon ")]
-        public async Task TestCanGetPokedex(string expectedName )
+        [TestCase("Empoleon")]
+        public async Task TestCanGetPokemonByName(string expectedName )
         {
             string baseurl = "https://pokeapi.co/api/v2/pokemon/";
             ApplicationViewModel avmtest = new ApplicationViewModel();
-            await avmtest.GetPokemon( (baseurl+ (expectedName.ToLower()).Trim() ) );
+            await avmtest.GetPokemon( (baseurl+ (expectedName.ToLower()).Trim() ));
             Console.WriteLine(avmtest.ChosenPokemon.Name);
             Assert.That(avmtest.ChosenPokemon.Name.ToLower(), Is.EqualTo( (expectedName.ToLower()).Trim() ) );
-            
-        }
-        [Test]
-        public void TestCanSinglePokedex()
-        {
-            
-        }
-        [Test]
-        public void TestCanRandomPokedex()
-        {
-            
         }
         
+        [Test]
+        [TestCase("45")]
+        [TestCase("9")]
+        [TestCase("1 ")]
+        public async Task TestCanGetPokemonByID(string expectedID)
+        {
+            string baseurl = "https://pokeapi.co/api/v2/pokemon/";
+            ApplicationViewModel avmtest = new ApplicationViewModel();
+            await avmtest.GetPokemon( (baseurl+ (expectedID) ));
+            Console.WriteLine(avmtest.ChosenPokemon.Name);
+            Assert.That(avmtest.ChosenPokemon.Name.ToLower(), Is.EqualTo( (expectedID.ToLower()).Trim() ) );
+        }
+
         [Test]
         public void TestCanGetPokesearchByDefault()
         {
             ApplicationViewModel avmtest = new ApplicationViewModel();
             Assert.That(avmtest.Pokesearch, Is.EqualTo("Bulbasaur"));
         }
+        
     }
