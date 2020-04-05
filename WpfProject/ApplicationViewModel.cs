@@ -96,9 +96,11 @@ namespace WpfProject
                     flavor_text = (string) item;
                     break;
                 }
+                
+                if(flavor_text == "none" || flavor_text == "" || string.IsNullOrEmpty(flavor_text) ) flavor_text = "none";
 
                 //adding new pokemon to the list
-                buffer.Add(new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text});
+                buffer.Add(new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text});
             }
         }
         
