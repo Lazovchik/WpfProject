@@ -17,6 +17,7 @@ namespace WpfProject
 {
     public class ApplicationViewModel: INotifyPropertyChanged
     {
+        //variables declaration
         private Pokemon chosenPokemon;
         private const string baseUrl = "https://pokeapi.co/api/v2/pokemon/";
         private static HttpClient client = new HttpClient();
@@ -70,14 +71,19 @@ namespace WpfProject
                 //Parsing received JSON string
                 JObject json = JObject.Parse(result);
                 //assigning the values
+                //name
                 string namebuff = (string) json["name"];
+                //transform first character to upper case
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
+                //image url
                 string imgUrl = (string) json["sprites"]["front_default"];
                 string[] types = {"none", "none"};
+                //pokemon sizes
                 float weight = ((float) json["weight"]) / 10; 
                 float height = ((float) json["height"]) / 10; 
 
-                ///in the json, the secondary type is listed first
+                //in the json, the secondary type is listed first
+                //pokemon types
                 if ((int) json["types"][0]["slot"] == 2)
                 {
                     types[0] = (string) json["types"][1]["type"]["name"];
@@ -85,11 +91,13 @@ namespace WpfProject
                 }
                 else types[0] = (string) json["types"][0]["type"]["name"];
                 
+                //getting aditional data
                 string flavorUrl = "https://pokeapi.co/api/v2/pokemon-species/" + name.ToLower() + "/";
                 string test = await  client.GetStringAsync(flavorUrl);
                 JObject jsontest = JObject.Parse(test);
                 IEnumerable<JToken>  flavor = jsontest.SelectTokens("$.flavor_text_entries[?(@.language.name == 'en')].flavor_text");
-
+                
+                //pokemons lore description
                 string flavor_text = "none";
                 foreach (JToken item in flavor)
                 {
@@ -164,8 +172,7 @@ namespace WpfProject
                 }
                
                 
-                //adding new pokemon to the list
-                
+                //chosing a pokemon to display
                 ChosenPokemon = new Pokemon{Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
             }
             //if the wrong typoe of request is made...
@@ -222,8 +229,7 @@ namespace WpfProject
                     break;
                 }
 
-                //adding new pokemon to the list
-                
+                //pokemon to display becomes
                 chosenPokemon =  new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
                 
             }
@@ -243,14 +249,14 @@ namespace WpfProject
                 string url;
                 int id;
                 // have to check if it is the id, or the name of the pokemon
-                /// if it is a number included within thoses attributed to a pokemon, we good
+                // if it is a number included within thoses attributed to a pokemon, we good
 
                 if ((pokesearch.All(char.IsDigit)))
                 {
                     id = int.Parse((pokesearch));
                     url = baseUrl + id.ToString() + "/";
                 }
-                /// if it's not all numbers, we cann assume it's a pokemon name, worst case scenario, it raises an exception
+                // if it's not all numbers, we cann assume it's a pokemon name, worst case scenario, it raises an exception
                 else
                 {
                     url = baseUrl + pokesearch.ToLower() + "/";
@@ -285,9 +291,8 @@ namespace WpfProject
             }
         }
         
-        
+        //for the value of search textbox 
         private string pokesearch;
-
         public string Pokesearch
         {
             get => pokesearch;
@@ -303,8 +308,8 @@ namespace WpfProject
             } 
         }
 
+        //command for the search button
         private RelayCommand startSearch;
-
         public RelayCommand StartSearch
         {
             get {
