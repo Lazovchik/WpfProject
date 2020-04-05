@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/WpfProject/ApplicationViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfProject/ApplicationViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WpfProject/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/WpfProject/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WpfProject/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfProject/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfProject/TestAppViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfProject/TestAppViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WpfProject/Pokemon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfProject/Pokemon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +39,11 @@
         <option value="$PROJECT_DIR$/WpfProject/POkemon.cs" />
         <option value="$PROJECT_DIR$/WpfProject/RelayCommand.cs" />
         <option value="$PROJECT_DIR$/WpfProject/ConsoleManager.cs" />
-        <option value="$PROJECT_DIR$/WpfProject/Pokemon.cs" />
-        <option value="$PROJECT_DIR$/WpfProject/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/WpfProject/TestAppViewModel.cs" />
         <option value="$PROJECT_DIR$/WpfProject/MainWindow.xaml.cs" />
         <option value="$PROJECT_DIR$/WpfProject/ApplicationViewModel.cs" />
-        <option value="$PROJECT_DIR$/WpfProject/TestAppViewModel.cs" />
+        <option value="$PROJECT_DIR$/WpfProject/Pokemon.cs" />
+        <option value="$PROJECT_DIR$/WpfProject/MainWindow.xaml" />
       </list>
     </option>
   </component>
@@ -113,7 +113,7 @@
       <workItem from="1585933484949" duration="17110000" />
       <workItem from="1586007258405" duration="4626000" />
       <workItem from="1586037587090" duration="5978000" />
-      <workItem from="1586081342311" duration="2594000" />
+      <workItem from="1586081342311" duration="10227000" />
     </task>
     <servers />
   </component>
@@ -140,29 +140,29 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="872" y="378" key="#Notifications/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1585911264680" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.bottom" timestamp="1586082702704">
+    <state width="1117" height="1142" key="GridCell.Tab.0.bottom" timestamp="1586092333616">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1877" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1585503607839" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.bottom/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586082702704" />
+    <state width="1117" height="1142" key="GridCell.Tab.0.bottom/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586092333616" />
     <state width="823" height="826" key="GridCell.Tab.0.bottom/0.0.2560.1440/2560.0.1920.1080@2560.0.1920.1080" timestamp="1586037886977" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.center" timestamp="1586082702703">
+    <state width="1117" height="1142" key="GridCell.Tab.0.center" timestamp="1586092333616">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1877" height="322" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1585503607839" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.center/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586082702703" />
+    <state width="1117" height="1142" key="GridCell.Tab.0.center/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586092333616" />
     <state width="823" height="826" key="GridCell.Tab.0.center/0.0.2560.1440/2560.0.1920.1080@2560.0.1920.1080" timestamp="1586037886976" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.left" timestamp="1586082702703">
+    <state width="1117" height="1142" key="GridCell.Tab.0.left" timestamp="1586092333616">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1877" height="322" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1585503607839" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.left/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586082702703" />
+    <state width="1117" height="1142" key="GridCell.Tab.0.left/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586092333616" />
     <state width="823" height="826" key="GridCell.Tab.0.left/0.0.2560.1440/2560.0.1920.1080@2560.0.1920.1080" timestamp="1586037886973" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.right" timestamp="1586082702704">
+    <state width="1117" height="1142" key="GridCell.Tab.0.right" timestamp="1586092333616">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1877" height="322" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1585503607839" />
-    <state width="1103" height="1142" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586082702704" />
+    <state width="1117" height="1142" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586092333616" />
     <state width="823" height="826" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1920.1080@2560.0.1920.1080" timestamp="1586037886976" />
     <state width="342" height="1311" key="GridCell.Tab.1.bottom" timestamp="1586007160271">
       <screen x="0" y="0" width="2560" height="1440" />
@@ -244,9 +244,9 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="936" y="340" key="run.anything.popup/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1585951283934" />
-    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup" timestamp="1586006158319">
+    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup" timestamp="1586085842927">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586006158319" />
+    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1586085842927" />
   </component>
 </project>

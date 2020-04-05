@@ -13,6 +13,17 @@ namespace WpfProject
         private string type2;
         private float weight;
         private float height;
+        private string flavorText;
+
+        public string FlavorText
+        {
+            get => flavorText;
+            set
+            {
+                flavorText = value;
+                OnPropertyChanged("FlavorText");
+            }
+        }
 
         public float Height
         {

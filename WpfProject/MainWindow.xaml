@@ -10,6 +10,7 @@
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Iceland" />  
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="14" />
@@ -27,7 +28,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="center" Background="Salmon">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="center" Background="#E8332A">
             <TextBlock Text="Welcome to WPF Pokedex Application" FontSize="20"  />
         </StackPanel>
         
@@ -64,7 +65,7 @@
                  Background="AntiqueWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Background="Salmon" HorizontalAlignment="Center">
+                    <StackPanel Background="#E8332A" HorizontalAlignment="Center">
                         <TextBlock  Text="{Binding Path=Name}" FontSize="18" HorizontalAlignment="Center" />
                         <TextBlock Text="{Binding Path=ID}" HorizontalAlignment="Center" />
                         <Image Source="{Binding Path=ImgUrl}" HorizontalAlignment="Center" Width="135" Height="135"/>
@@ -72,6 +73,35 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
+        <!--<StackPanel Grid.Row="4" Grid.Column="1" Margin="70" DataContext="{Binding ChosenPokemon}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="4*" />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Path=ImgUrl, UpdateSourceTrigger=PropertyChanged}" 
+                       HorizontalAlignment="Center" 
+                       Width="300" 
+                       Height="300"
+                       Margin="0" />
+                <Button Grid.Column="1">Button 2</Button>
+                <Button Grid.Column="2">Button 3</Button>
+                <Button Grid.Row="1">Button 4</Button>
+                <Button Grid.Column="1" Grid.Row="1">Button 5</Button>
+                <Button Grid.Column="2" Grid.Row="1">Button 6</Button>
+                <Button Grid.Row="2">Button 7</Button>
+                <Button Grid.Column="1" Grid.Row="2">Button 8</Button>
+                <Button Grid.Column="2" Grid.Row="2">Button 9</Button>
+            </Grid>
+        </StackPanel>-->
         
         <StackPanel Grid.Row="3" Grid.Column="1" Margin="10" DataContext="{Binding ChosenPokemon}">
             <TextBlock Text="ChosenPokemon" FontSize="20" />
@@ -105,6 +135,8 @@
             <TextBlock Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="Weight in kg" FontStyle="Oblique" FontSize="17" />
             <TextBlock Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Description" FontStyle="Oblique" FontSize="17" />
+            <TextBlock Text="{Binding FlavorText, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>
 </Window>

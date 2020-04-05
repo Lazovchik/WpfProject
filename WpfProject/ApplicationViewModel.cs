@@ -136,10 +136,23 @@ namespace WpfProject
                     types[0] = (string) json["types"][0]["type"]["name"];
                     types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
                 }
+
+                string flavorUrl = "https://pokeapi.co/api/v2/pokemon-species/" + name.ToLower() + "/";
+                string test = await  client.GetStringAsync(flavorUrl);
+                JObject jsontest = JObject.Parse(test);
+                IEnumerable<JToken>  flavor = jsontest.SelectTokens("$.flavor_text_entries[?(@.language.name == 'en')].flavor_text");
+
+                string flavor_text = "none";
+                foreach (JToken item in flavor)
+                {
+                     flavor_text = (string) item;
+                    break;
+                }
+               
                 
                 //adding new pokemon to the list
                 
-                ChosenPokemon = new Pokemon{Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+                ChosenPokemon = new Pokemon{Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
             }
             //if the wrong typoe of request is made...
             catch (AggregateException e)
@@ -165,7 +178,8 @@ namespace WpfProject
                 string name = char.ToUpper(namebuff[0]) + namebuff.Substring(1);
                 string imgUrl = (string) json["sprites"]["front_default"];
                 float weight = ((float) json["weight"]) / 10; 
-                float height = ((float) json["height"]) / 10; 
+                float height = ((float) json["height"]) / 10;
+                
                 
                 string[] types = {"none", "none"};
                 ///in the json, the secondary type is listed first
@@ -182,9 +196,21 @@ namespace WpfProject
                     types[0] = char.ToUpper(types[0][0]) + types[0].Substring(1);
                 }
                 
+                string flavorUrl = "https://pokeapi.co/api/v2/pokemon-species/" + name.ToLower() + "/";
+                string test = await  client.GetStringAsync(flavorUrl);
+                JObject jsontest = JObject.Parse(test);
+                IEnumerable<JToken>  flavor = jsontest.SelectTokens("$.flavor_text_entries[?(@.language.name == 'en')].flavor_text");
+
+                string flavor_text = "none";
+                foreach (JToken item in flavor)
+                {
+                    flavor_text = (string) item;
+                    break;
+                }
+
                 //adding new pokemon to the list
                 
-                chosenPokemon =  new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height};
+                chosenPokemon =  new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
                 
             }
             catch (Exception e)

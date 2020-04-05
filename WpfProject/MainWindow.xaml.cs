@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace WpfProject
 {
@@ -8,7 +9,7 @@ namespace WpfProject
         public MainWindow()
         {
             InitializeComponent();
-            
+            this.FontFamily = new FontFamily("Iceland");
             DataContext = new ApplicationViewModel();
         }
 
