@@ -5,7 +5,7 @@ This is a Pokedex project made by Artemii Lazovskii and Daniel Marin as a part o
 
 It has as a purpose to demonstrate our knowledge of C#, WPF, and MVVM.
 
-![Image AppView](./Screenshots/AppView.png)
+![Image AppView](./Screenshots/UpdatedAppView.png)
 
 ## Requirements
 We've used Rider IDE for the project, so you better use it too (to avoid any possibel conflicts).
