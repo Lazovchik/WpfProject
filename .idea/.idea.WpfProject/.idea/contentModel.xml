@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Lazovchik\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Lazovchik\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WpfProject.1842452428.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Lazovchik\RiderProjects\WpfProject" t="IncludeFlat">
+    <e p="C:\Users\danie\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\danie\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WpfProject.683387134.00" t="ExcludeRecursive" />
+    <e p="E:\Github\WpfProject" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="WpfProject" t="IncludeRecursive">
         <e p="App.config" t="Include" />
