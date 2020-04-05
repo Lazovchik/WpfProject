@@ -139,25 +139,25 @@
             <TextBlock Text="Description" FontStyle="Oblique" FontSize="17" />
             <TextBlock Text="{Binding FlavorText, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>-->
-        <Grid Grid.Row="3" Grid.Column="1" Margin="10" DataContext="{Binding ChosenPokemon}" ShowGridLines="True">
+        <Grid Grid.Row="3" Grid.Column="1" Margin="10" DataContext="{Binding ChosenPokemon}">
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.085*" />
+                <RowDefinition Height="0.235*" />
             </Grid.RowDefinitions>
-            <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="9">
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="9">
             </Border>
             <TextBlock Text="ChosenPokemon" FontSize="40" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
             <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" FontSize="30" VerticalAlignment="Center" />
@@ -168,18 +168,19 @@
                    Margin="0"
                    Grid.Column="0"
                    Grid.Row="2"
-                   Grid.RowSpan="5"
+                   Grid.RowSpan="7"
             />
             
-            <TextBlock Grid.Row="1" Grid.Column="2" Text="ID" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Row="3" Grid.Column="2" Text="Height in meters" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Row="5" Grid.Column="2" Text="Weight in kg" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Row="7" Grid.Column="2" Text="Types" FontStyle="Oblique" FontSize="17" />
-            <TextBlock Grid.Row="8" Grid.Column="2" Margin="20, 0, 0, 0" HorizontalAlignment="Left" Text="{Binding Type1, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Row="8" Grid.Column="2" Margin="0, 0, 20, 0" HorizontalAlignment="Right" Text="{Binding Type2, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="ID" FontStyle="Oblique" FontSize="17" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Height in meters" FontStyle="Oblique" FontSize="17" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="Weight in kg" FontStyle="Oblique" FontSize="17" />
+            <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="Types" FontStyle="Oblique" FontSize="17" />
+            <TextBlock Grid.Row="8" Grid.Column="1" Margin="100, 0, 0, 0" HorizontalAlignment="Left" Text="{Binding Type1, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="8" Grid.Column="1" Margin="0, 0, 100, 0" HorizontalAlignment="Right" Text="{Binding Type2, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding FlavorText, UpdateSourceTrigger=PropertyChanged}" FontSize="17" />
             
         </Grid>
     </Grid>
