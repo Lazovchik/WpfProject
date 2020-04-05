@@ -85,8 +85,20 @@ namespace WpfProject
                 }
                 else types[0] = (string) json["types"][0]["type"]["name"];
                 
+                string flavorUrl = "https://pokeapi.co/api/v2/pokemon-species/" + name.ToLower() + "/";
+                string test = await  client.GetStringAsync(flavorUrl);
+                JObject jsontest = JObject.Parse(test);
+                IEnumerable<JToken>  flavor = jsontest.SelectTokens("$.flavor_text_entries[?(@.language.name == 'en')].flavor_text");
+
+                string flavor_text = "none";
+                foreach (JToken item in flavor)
+                {
+                    flavor_text = (string) item;
+                    break;
+                }
+
                 //adding new pokemon to the list
-                buffer.Add(new Pokemon {Name = name, ID = id, Url = url, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height});
+                buffer.Add(new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text});
             }
         }
         
