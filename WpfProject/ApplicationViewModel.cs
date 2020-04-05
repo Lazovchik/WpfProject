@@ -45,11 +45,12 @@ namespace WpfProject
 
         public  ApplicationViewModel()
         { 
-            RandomPokemons = new ObservableCollection<Pokemon> { }; 
-            RandomizePokemons(RandomPokemons);
-            GetPokeDex();
+            //GetPokeDex();
             pokesearch = "Bulbasaur";
             SearchPokemon();
+            RandomPokemons = new ObservableCollection<Pokemon> { }; 
+            RandomizePokemons(RandomPokemons);
+            
         }
         
         //To randomize pokemons list on the initial page
@@ -192,7 +193,6 @@ namespace WpfProject
             catch( HttpRequestException e)
             {
                 Console.Error.WriteLine(e.Message);
-                Console.Error.WriteLine(e.Source);
                 
                 Random rnd = new Random();
                 int id = rnd.Next(1, 807);
@@ -237,8 +237,7 @@ namespace WpfProject
                 }
 
                 //pokemon to display becomes
-                chosenPokemon =  new Pokemon {Name = name, ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
-                
+                ChosenPokemon =  new Pokemon {Name = ("RANDOM : " + name), ID = id, Url = newurl, ImgUrl = imgUrl, Type1 = types[0], Type2 = types[1], Weight = weight, Height = height, FlavorText= flavor_text};
             }
             catch (Exception e)
             {

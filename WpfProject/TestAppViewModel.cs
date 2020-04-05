@@ -26,21 +26,19 @@ public class TestAppViewModel
             string baseurl = "https://pokeapi.co/api/v2/pokemon/";
             ApplicationViewModel avmtest = new ApplicationViewModel();
             await avmtest.GetPokemon( (baseurl+ (expectedName.ToLower()).Trim() ));
-            Console.WriteLine(avmtest.ChosenPokemon.Name);
             Assert.That(avmtest.ChosenPokemon.Name.ToLower(), Is.EqualTo( (expectedName.ToLower()).Trim() ) );
         }
         
         [Test]
-        [TestCase("45")]
-        [TestCase("9")]
-        [TestCase("1 ")]
-        public async Task TestCanGetPokemonByID(string expectedID)
+        [TestCase(45)]
+        [TestCase(9)]
+        [TestCase(1)]
+        public async Task TestCanGetPokemonByID(int expectedID)
         {
             string baseurl = "https://pokeapi.co/api/v2/pokemon/";
             ApplicationViewModel avmtest = new ApplicationViewModel();
-            await avmtest.GetPokemon( (baseurl+ (expectedID) ));
-            Console.WriteLine(avmtest.ChosenPokemon.Name);
-            Assert.That(avmtest.ChosenPokemon.Name.ToLower(), Is.EqualTo( (expectedID.ToLower()).Trim() ) );
+            await avmtest.GetPokemon( (baseurl+ (expectedID.ToString()) +"/"));
+            Assert.That(avmtest.ChosenPokemon.ID, Is.EqualTo(expectedID ) );
         }
 
         [Test]
