@@ -30,7 +30,7 @@ public class TestAppViewModel
         }
         
         [Test]
-        [TestCase(45)]
+        [TestCase(6)]
         [TestCase(9)]
         [TestCase(1)]
         public async Task TestCanGetPokemonByID(int expectedID)
@@ -38,6 +38,7 @@ public class TestAppViewModel
             string baseurl = "https://pokeapi.co/api/v2/pokemon/";
             ApplicationViewModel avmtest = new ApplicationViewModel();
             await avmtest.GetPokemon( (baseurl+ (expectedID.ToString()) +"/"));
+            Console.WriteLine(avmtest.ChosenPokemon.Name);
             Assert.That(avmtest.ChosenPokemon.ID, Is.EqualTo(expectedID ) );
         }
 
