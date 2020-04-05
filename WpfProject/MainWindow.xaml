@@ -95,7 +95,7 @@
             </Grid.RowDefinitions>
             <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="9">
             </Border>
-            <TextBlock Text="ChosenPokemon" FontSize="40" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
+            <TextBlock Text="Chosen Pokemon" FontSize="40" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
             <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" FontSize="30" VerticalAlignment="Center" />
             <Image Source="{Binding Path=ImgUrl, UpdateSourceTrigger=PropertyChanged}" 
                    HorizontalAlignment="Center" 
