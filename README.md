@@ -20,3 +20,6 @@ Install WebApi client for .NET
 
 Instructions: `https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/`
 
+Install Nunit for testing
+
+Instructions: `https://www.nuget.org/packages/Nunit`
