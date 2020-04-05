@@ -1,5 +1,12 @@
 # WpfProject
- 
+
+## Description
+This is a Pokedex project made by Artemii Lazovskii and Daniel Marin as a part of our engeneering course.
+
+It has as a purpose to demonstrate our knowledge of C#, WPF, and MVVM.
+
+![Image AppView](./Screenshots/AppView.png)
+
 ## Requirements
 We've used Rider IDE for the project, so you better use it too (to avoid any possibel conflicts).
 
@@ -13,5 +20,3 @@ Install WebApi client for .NET
 
 Instructions: `https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/`
 
-## Description
-![Image AppView](./Screenshots/AppView.png)
